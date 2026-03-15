@@ -2,69 +2,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pullover Fashion | متجر ملابس احترافي</title>
-  <meta name="description" content="متجر ملابس احترافي بتصميم عصري، أقسام متعددة، سلة شراء، بحث، فلاتر، عروض، ومودال تفاصيل المنتج - كل شيء داخل ملف HTML واحد." />
+  <title>دليل ألبرت بايثون | منصة تعليم Python المكثفة</title>
   <style>
     :root {
-      --bg: #0b1020;
-      --bg-soft: #111831;
-      --panel: rgba(255,255,255,0.08);
-      --panel-strong: rgba(255,255,255,0.14);
-      --text: #f5f7ff;
-      --muted: #b5bfd9;
-      --brand: #7c5cff;
-      --brand-2: #15d4ff;
-      --gold: #ffcb52;
-      --success: #2dd4bf;
-      --danger: #ff6b6b;
-      --shadow: 0 20px 60px rgba(0,0,0,.35);
-      --radius-xl: 28px;
-      --radius-lg: 20px;
-      --radius-md: 14px;
-      --blur: blur(16px);
-      --max: 1280px;
+      --bg: #071018;
+      --bg2: #0c1722;
+      --card: rgba(14, 24, 36, 0.92);
+      --card2: rgba(10, 18, 28, 0.96);
+      --line: rgba(120, 170, 255, 0.16);
+      --text: #eef6ff;
+      --muted: #9fb2c6;
+      --accent: #66ffd8;
+      --accent2: #7aa2ff;
+      --gold: #ffd166;
+      --danger: #ff7b7b;
+      --success: #89ffb1;
+      --radius: 22px;
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
     }* { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font-family: "Cairo", "Tahoma", Arial, sans-serif;
+  font-family: Tahoma, Arial, sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at 10% 10%, rgba(124,92,255,.35), transparent 28%),
-    radial-gradient(circle at 85% 15%, rgba(21,212,255,.22), transparent 22%),
-    radial-gradient(circle at 50% 85%, rgba(255,203,82,.12), transparent 18%),
-    linear-gradient(135deg, #060912 0%, #0c1326 45%, #0a1020 100%);
+    radial-gradient(circle at top right, rgba(122,162,255,0.17), transparent 27%),
+    radial-gradient(circle at bottom left, rgba(102,255,216,0.12), transparent 30%),
+    linear-gradient(135deg, #050c14, #09131e 45%, #071019 100%);
   min-height: 100vh;
   overflow-x: hidden;
 }
 
 a { color: inherit; text-decoration: none; }
-img { max-width: 100%; display: block; }
-button, input, select { font: inherit; }
-
-.container {
-  width: min(100% - 24px, var(--max));
-  margin-inline: auto;
+code {
+  background: rgba(255,255,255,.06);
+  padding: 2px 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.07);
+  font-family: Consolas, monospace;
 }
 
-.glass {
-  background: var(--panel);
-  border: 1px solid rgba(255,255,255,.12);
-  backdrop-filter: var(--blur);
-  -webkit-backdrop-filter: var(--blur);
-  box-shadow: var(--shadow);
+.container {
+  width: min(1280px, calc(100% - 26px));
+  margin: auto;
 }
 
 .topbar {
   position: sticky;
   top: 0;
-  z-index: 200;
-  background: rgba(8,12,24,.72);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(255,255,255,.08);
+  z-index: 1000;
+  backdrop-filter: blur(14px);
+  background: rgba(3, 10, 17, 0.8);
+  border-bottom: 1px solid var(--line);
 }
 
-.nav {
+.topbar-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -76,1717 +68,1087 @@ button, input, select { font: inherit; }
   display: flex;
   align-items: center;
   gap: 12px;
-  font-weight: 800;
-  letter-spacing: .3px;
+  min-width: 0;
 }
 
-.brand-logo {
+.logo {
   width: 48px;
   height: 48px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, var(--brand), var(--brand-2));
   display: grid;
   place-items: center;
-  box-shadow: 0 10px 30px rgba(124,92,255,.45);
-  font-size: 22px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--accent2), var(--accent));
+  color: #051018;
+  font-size: 1.1rem;
+  font-weight: 900;
+  box-shadow: var(--shadow);
 }
 
-.brand small {
-  display: block;
-  color: var(--muted);
-  font-weight: 600;
-  font-size: 12px;
-  margin-top: 2px;
-}
+.brand-title { font-weight: 900; }
+.brand-title small { display: block; color: var(--muted); font-weight: 400; }
 
-.nav-links {
+.nav {
   display: flex;
-  align-items: center;
-  gap: 12px;
   flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
 }
 
-.nav-links a,
-.btn,
-.icon-btn {
-  border: 1px solid rgba(255,255,255,.1);
-  background: rgba(255,255,255,.06);
+.nav a, .btn {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
   color: var(--text);
-  border-radius: 14px;
   padding: 12px 16px;
+  border-radius: 14px;
   cursor: pointer;
   transition: .25s ease;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(0,0,0,.16);
 }
 
-.nav-links a:hover,
-.btn:hover,
-.icon-btn:hover {
+.nav a:hover, .btn:hover, .btn.active {
   transform: translateY(-2px);
-  background: rgba(255,255,255,.1);
-  border-color: rgba(255,255,255,.18);
+  border-color: rgba(102,255,216,.35);
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, var(--brand), #5f49ff);
+.btn.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #041018;
   border: none;
-  box-shadow: 0 14px 32px rgba(124,92,255,.35);
 }
 
-.btn-secondary {
-  background: linear-gradient(135deg, #0ea5e9, var(--brand-2));
+.btn.gold {
+  background: linear-gradient(135deg, var(--gold), #ff9f68);
+  color: #131313;
   border: none;
-  box-shadow: 0 14px 32px rgba(21,212,255,.22);
-  color: #051018;
-  font-weight: 800;
 }
 
 .hero {
-  padding: 40px 0 18px;
+  padding: 72px 0 38px;
 }
 
-.hero-wrap {
+.hero-grid, .grid-2, .grid-3, .grid-4, .contact-grid {
   display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 26px;
-  align-items: stretch;
+  gap: 18px;
 }
 
-.hero-card {
-  border-radius: var(--radius-xl);
-  padding: 30px;
-  position: relative;
-  overflow: hidden;
-  min-height: 430px;
+.hero-grid { grid-template-columns: 1.2fr .8fr; align-items: center; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.contact-grid { grid-template-columns: 1.2fr .8fr; }
+
+.card, .hero-card, .glass, .feature, .course-card, .lesson-card, .project-card, .resource-card, .faq-item, .quiz-card, .terminal, .contact-card, .info-box, .expert-card, .exam-bank-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
-.hero-card::before {
-  content: "";
-  position: absolute;
-  inset: -20% auto auto -10%;
-  width: 240px;
-  height: 240px;
-  background: radial-gradient(circle, rgba(124,92,255,.34), transparent 70%);
-  pointer-events: none;
+.hero-card, .glass, .feature, .course-card, .lesson-card, .project-card, .resource-card, .quiz-card, .contact-card, .info-box, .expert-card, .exam-bank-card {
+  padding: 22px;
 }
 
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #111;
-  background: linear-gradient(135deg, var(--gold), #ffe39f);
-  padding: 8px 14px;
+  padding: 8px 12px;
   border-radius: 999px;
-  font-weight: 800;
-  margin-bottom: 18px;
-  box-shadow: 0 10px 25px rgba(255,203,82,.25);
+  border: 1px solid rgba(102,255,216,.18);
+  background: rgba(102,255,216,.08);
+  color: var(--accent);
+  font-size: 13px;
+  margin-bottom: 16px;
 }
 
-.hero h1 {
-  margin: 0 0 14px;
-  font-size: clamp(32px, 5vw, 64px);
-  line-height: 1.08;
+h1, h2, h3, h4, p { margin-top: 0; }
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 14px;
 }
 
-.hero p {
-  margin: 0;
-  max-width: 700px;
-  color: var(--muted);
-  line-height: 1.9;
-  font-size: 16px;
-}
+.muted, .section-head p, .hero p { color: var(--muted); }
+.cta-row, .filters, .tabs, .actions, .quiz-actions, .term-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.cta-row { margin-top: 22px; }
 
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 26px;
-}
-
-.hero-stats {
+.stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin-top: 26px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 22px;
 }
 
 .stat {
-  padding: 16px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.06);
   border-radius: 18px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.08);
-}
-
-.stat strong {
-  display: block;
-  font-size: 26px;
-  margin-bottom: 6px;
-}
-
-.hero-showcase {
-  display: grid;
-  gap: 18px;
-}
-
-.floating-card,
-.offer-card,
-.shipping-card {
-  border-radius: var(--radius-xl);
-  padding: 22px;
-}
-
-.floating-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.mini-tile {
   padding: 16px;
-  border-radius: 18px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.08);
 }
 
-.mini-tile h4 {
-  margin: 0 0 8px;
-  font-size: 15px;
-}
+.stat strong { display: block; font-size: 1.6rem; margin-bottom: 6px; }
 
-.mini-tile p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.7;
-}
-
-section {
-  padding: 28px 0;
-}
+.hero-side { display: grid; gap: 16px; }
+section { padding: 34px 0; }
 
 .section-head {
   display: flex;
-  align-items: end;
   justify-content: space-between;
-  gap: 16px;
+  align-items: end;
+  gap: 18px;
   margin-bottom: 20px;
   flex-wrap: wrap;
 }
 
-.section-head h2 {
-  margin: 0 0 6px;
-  font-size: clamp(24px, 3vw, 38px);
-}
-
-.section-head p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.category-grid {
+.icon {
+  width: 54px;
+  height: 54px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-
-.category {
-  border-radius: 24px;
-  padding: 22px;
-  min-height: 160px;
-  position: relative;
-  overflow: hidden;
-  transition: .25s ease;
-}
-
-.category:hover { transform: translateY(-4px); }
-.category:nth-child(1) { background: linear-gradient(135deg, rgba(124,92,255,.25), rgba(124,92,255,.08)); }
-.category:nth-child(2) { background: linear-gradient(135deg, rgba(21,212,255,.22), rgba(21,212,255,.06)); }
-.category:nth-child(3) { background: linear-gradient(135deg, rgba(255,203,82,.22), rgba(255,203,82,.06)); }
-.category:nth-child(4) { background: linear-gradient(135deg, rgba(45,212,191,.22), rgba(45,212,191,.06)); }
-
-.category h3 {
-  margin: 10px 0 8px;
-  font-size: 22px;
-}
-
-.category p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.8;
-}
-
-.filters {
-  display: grid;
-  grid-template-columns: 1.4fr repeat(3, .8fr) auto;
-  gap: 14px;
-  margin-bottom: 22px;
-  align-items: stretch;
-}
-
-.field {
-  position: relative;
-}
-
-.field input,
-.field select {
-  width: 100%;
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(255,255,255,.12);
-  color: var(--text);
+  place-items: center;
   border-radius: 16px;
-  padding: 15px 16px;
-  outline: none;
-  transition: .25s ease;
-}
-
-.field input:focus,
-.field select:focus {
-  border-color: rgba(124,92,255,.7);
-  box-shadow: 0 0 0 4px rgba(124,92,255,.14);
-}
-
-.products-wrap {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 20px;
-}
-
-.side-panel {
-  border-radius: 24px;
-  padding: 18px;
-  height: fit-content;
-  position: sticky;
-  top: 88px;
-}
-
-.side-panel h3,
-.cart-head h3 {
-  margin: 4px 0 14px;
-  font-size: 22px;
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.tag {
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.1);
-  color: var(--muted);
-  font-size: 13px;
-  cursor: pointer;
-  transition: .25s ease;
-}
-
-.tag.active,
-.tag:hover {
-  background: linear-gradient(135deg, rgba(124,92,255,.3), rgba(124,92,255,.12));
-  color: #fff;
-  border-color: rgba(124,92,255,.45);
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.product-card {
-  border-radius: 24px;
-  overflow: hidden;
-  transition: .25s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 25px 70px rgba(0,0,0,.32);
-}
-
-.product-media {
-  position: relative;
-  aspect-ratio: 4 / 4.3;
-  overflow: hidden;
-  background: linear-gradient(135deg, rgba(124,92,255,.18), rgba(21,212,255,.12));
-}
-
-.product-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform .35s ease;
-}
-
-.product-card:hover .product-media img { transform: scale(1.05); }
-
-.badge {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  background: rgba(11,16,32,.82);
-  border: 1px solid rgba(255,255,255,.12);
-  padding: 8px 12px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 800;
-}
-
-.wishlist {
-  position: absolute;
-  left: 14px;
-  top: 14px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: rgba(11,16,32,.82);
-  border: 1px solid rgba(255,255,255,.12);
-  cursor: pointer;
-  transition: .25s ease;
-  font-size: 18px;
-}
-
-.wishlist.active {
-  background: linear-gradient(135deg, #ff6b6b, #ff8d8d);
-  border: none;
-}
-
-.product-body {
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex: 1;
-}
-
-.product-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  align-items: start;
-}
-
-.product-top h3 {
-  margin: 0;
-  font-size: 20px;
-  line-height: 1.4;
-}
-
-.stars {
-  color: var(--gold);
-  font-size: 14px;
-  white-space: nowrap;
-}
-
-.product-desc {
-  color: var(--muted);
-  line-height: 1.8;
-  font-size: 14px;
-  margin: 0;
-}
-
-.product-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.pill {
-  font-size: 12px;
-  color: #d7ddf7;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.08);
-  padding: 8px 12px;
-  border-radius: 999px;
-}
-
-.product-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: auto;
-}
-
-.price-wrap strong {
-  display: block;
-  font-size: 22px;
-}
-
-.price-wrap del {
-  color: #8f98b8;
-  font-size: 13px;
-}
-
-.actions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.tiny-btn {
-  padding: 11px 14px;
-  border-radius: 14px;
-  border: none;
-  cursor: pointer;
-  font-weight: 800;
-  transition: .25s ease;
-}
-
-.tiny-btn.view {
-  background: rgba(255,255,255,.08);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,.1);
-}
-
-.tiny-btn.cart {
-  background: linear-gradient(135deg, var(--brand), #5f49ff);
-  color: white;
-  box-shadow: 0 14px 28px rgba(124,92,255,.25);
-}
-
-.promo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.promo-card {
-  border-radius: 26px;
-  padding: 24px;
-  min-height: 220px;
-  position: relative;
-  overflow: hidden;
-}
-
-.promo-card h3 {
-  margin: 10px 0;
-  font-size: 24px;
-}
-
-.promo-card p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.9;
-}
-
-.reviews {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.review {
-  border-radius: 24px;
-  padding: 22px;
-}
-
-.review-top {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 14px;
-}
-
-.avatar {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--brand), var(--brand-2));
-  display: grid;
-  place-items: center;
-  font-weight: 800;
-}
-
-.review p {
-  color: var(--muted);
-  line-height: 1.9;
-  margin: 0;
-}
-
-.cta {
-  border-radius: 30px;
-  padding: 28px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 18px;
-  align-items: center;
-}
-
-.cta h2 { margin: 0 0 8px; font-size: clamp(24px, 3vw, 42px); }
-.cta p { margin: 0; color: var(--muted); line-height: 1.9; }
-
-footer {
-  padding: 30px 0 50px;
-  color: var(--muted);
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.2fr .8fr .8fr;
-  gap: 18px;
-}
-
-.footer-card {
-  border-radius: 24px;
-  padding: 22px;
-}
-
-.footer-card h4 {
-  margin-top: 0;
+  font-size: 1.35rem;
   margin-bottom: 12px;
-  color: var(--text);
+  background: linear-gradient(135deg, rgba(122,162,255,.25), rgba(102,255,216,.18));
+  border: 1px solid var(--line);
 }
 
-.footer-list {
-  display: grid;
-  gap: 10px;
-}
-
-.cart-toggle {
-  position: relative;
-}
-
-.count {
-  position: absolute;
-  top: -8px;
-  left: -8px;
-  min-width: 24px;
-  height: 24px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, var(--danger), #ff9f9f);
-  color: white;
-  font-size: 12px;
-  font-weight: 800;
-  padding: 0 6px;
-  box-shadow: 0 10px 25px rgba(255,107,107,.28);
-}
-
-.cart-drawer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: min(420px, 100%);
-  height: 100vh;
-  z-index: 300;
-  background: rgba(10,14,27,.96);
-  border-right: 1px solid rgba(255,255,255,.08);
-  transform: translateX(-100%);
-  transition: transform .3s ease;
-  display: flex;
-  flex-direction: column;
-  backdrop-filter: blur(18px);
-}
-
-.cart-drawer.open { transform: translateX(0); }
-
-.cart-head {
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
-
-.cart-items {
-  flex: 1;
-  overflow: auto;
-  padding: 18px;
-  display: grid;
-  gap: 14px;
-  align-content: start;
-}
-
-.cart-item {
-  display: grid;
-  grid-template-columns: 84px 1fr;
-  gap: 14px;
-  padding: 14px;
-  border-radius: 20px;
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.08);
-}
-
-.cart-item img {
-  width: 84px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 16px;
-}
-
-.cart-item h4 {
-  margin: 0 0 6px;
-  font-size: 16px;
-}
-
-.cart-item p {
-  margin: 0 0 10px;
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.cart-line {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.qty-controls {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 999px;
-  padding: 6px;
-}
-
-.qty-controls button {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(255,255,255,.08);
-  color: white;
-  cursor: pointer;
-}
-
-.cart-footer {
-  border-top: 1px solid rgba(255,255,255,.08);
-  padding: 20px;
-  display: grid;
-  gap: 12px;
-}
-
-.summary-row {
-  display: flex;
-  justify-content: space-between;
-  color: var(--muted);
-}
-
-.summary-row.total {
-  color: var(--text);
-  font-weight: 800;
-  font-size: 20px;
-}
-
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.5);
-  z-index: 250;
-  opacity: 0;
-  visibility: hidden;
-  transition: .25s ease;
-}
-
-.overlay.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-.modal {
-  position: fixed;
-  inset: 50% auto auto 50%;
-  transform: translate(-50%, -50%) scale(.95);
-  width: min(900px, calc(100% - 20px));
-  z-index: 350;
-  opacity: 0;
-  visibility: hidden;
-  transition: .25s ease;
-}
-
-.modal.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.modal-card {
-  border-radius: 30px;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: .9fr 1.1fr;
-}
-
-.modal-media {
-  min-height: 420px;
-  background: linear-gradient(135deg, rgba(124,92,255,.25), rgba(21,212,255,.14));
-}
-
-.modal-media img {
+.search-box, .terminal-input {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  padding: 15px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+  outline: none;
+  font-size: 1rem;
 }
 
-.modal-body {
-  padding: 26px;
-  position: relative;
+.course-grid, .lessons-grid, .projects-grid, .resources-grid, .experts-grid, .exam-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
-.close-btn {
+.course-card { position: relative; overflow: hidden; }
+.badge {
   position: absolute;
   top: 16px;
   left: 16px;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(255,255,255,.08);
-  color: white;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.modal-body h3 {
-  margin: 12px 0 10px;
-  font-size: 32px;
-}
-
-.modal-body p {
-  color: var(--muted);
-  line-height: 1.9;
-}
-
-.color-dots,
-.size-list {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin: 14px 0 20px;
-}
-
-.color-dot,
-.size-item {
+  padding: 7px 11px;
   border-radius: 999px;
-  padding: 10px 14px;
-  border: 1px solid rgba(255,255,255,.1);
-  background: rgba(255,255,255,.06);
+  font-size: 12px;
+  background: rgba(102,255,216,.12);
+  color: var(--accent);
+  border: 1px solid rgba(102,255,216,.18);
 }
 
-.empty {
-  text-align: center;
-  padding: 28px 16px;
-  color: var(--muted);
-  border: 1px dashed rgba(255,255,255,.15);
-  border-radius: 18px;
-  background: rgba(255,255,255,.04);
-}
-
-#adminPanelSection { display: none; }
-.admin-table { width: 100%; border-collapse: collapse; min-width: 760px; }
-.admin-table th, .admin-table td { padding: 12px 10px; border-bottom: 1px solid rgba(255,255,255,.08); text-align: right; font-size: 14px; }
-.admin-table th { color: var(--text); background: rgba(255,255,255,.04); }
-.admin-thumb { width: 52px; height: 62px; object-fit: cover; border-radius: 10px; background: rgba(255,255,255,.05); }
-.admin-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-.admin-small-btn { padding: 8px 10px; border: none; border-radius: 10px; cursor: pointer; font-weight: 700; color: white; background: rgba(255,255,255,.1); }
-.admin-small-btn.edit { background: linear-gradient(135deg, var(--brand), #5f49ff); }
-.admin-small-btn.delete { background: linear-gradient(135deg, #ff6b6b, #ff8d8d); }
-
-.toast-wrap {
-  position: fixed;
-  bottom: 18px;
-  right: 18px;
-  z-index: 400;
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
   display: grid;
   gap: 10px;
 }
 
-.toast {
+.list li {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.05);
+  color: #dceafa;
+  line-height: 1.8;
+}
+
+.tabs { margin-bottom: 16px; }
+.lesson-card { display: none; }
+.lesson-card.active { display: block; }
+
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.info-box {
+  background: rgba(255,255,255,.04);
+}
+
+.faq-wrap { display: grid; gap: 14px; }
+
+.faq-item button {
+  width: 100%;
+  text-align: right;
+  background: transparent;
+  color: var(--text);
+  border: none;
+  padding: 18px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq-content {
+  display: none;
+  padding: 0 20px 20px;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+.faq-item.open .faq-content { display: block; }
+
+.progress-wrap {
+  background: rgba(255,255,255,.05);
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  height: 14px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  transition: .4s ease;
+}
+
+.terminal { overflow: hidden; }
+.terminal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: rgba(255,255,255,.04);
+  border-bottom: 1px solid var(--line);
+}
+
+.dots { display: flex; gap: 8px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.red { background: #ff5f57; }
+.yellow { background: #febc2e; }
+.green { background: #28c840; }
+
+.terminal-body {
+  min-height: 320px;
+  background: #040b12;
+  color: #bfffd3;
+  padding: 18px;
+  font-family: Consolas, monospace;
+  white-space: pre-wrap;
+  line-height: 1.8;
+  overflow-y: auto;
+  max-height: 420px;
+}
+
+.quiz-question { font-size: 1.1rem; margin-bottom: 16px; }
+.answers { display: grid; gap: 10px; }
+.score-box {
+  padding: 16px;
   border-radius: 16px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.question-bank {
+  max-height: 520px;
+  overflow-y: auto;
+  padding-inline-end: 4px;
+}
+
+.bank-item {
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+  margin-bottom: 10px;
+  line-height: 1.8;
+}
+
+.expert-name { color: var(--gold); font-weight: 900; font-size: 1.1rem; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.tag {
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.06);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.footer {
+  margin-top: 20px;
+  padding: 26px 0 40px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 2500;
+  background: rgba(10,18,28,.96);
+  color: var(--text);
   padding: 14px 16px;
-  min-width: 260px;
-  background: rgba(12,18,32,.95);
-  border: 1px solid rgba(255,255,255,.08);
+  border: 1px solid var(--line);
+  border-radius: 16px;
   box-shadow: var(--shadow);
-  animation: slideIn .25s ease;
+  transform: translateY(120px);
+  transition: .35s ease;
+  max-width: 320px;
 }
 
-@keyframes slideIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.toast.show { transform: translateY(0); }
+
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: rgba(2, 8, 15, .84);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  backdrop-filter: blur(12px);
 }
 
-@media (max-width: 1100px) {
-  .hero-wrap,
-  .products-wrap,
-  .modal-card,
-  .cta,
-  .footer-grid { grid-template-columns: 1fr; }
-  .product-grid { grid-template-columns: repeat(2, 1fr); }
-  .category-grid,
-  .promo-grid,
-  .reviews { grid-template-columns: repeat(2, 1fr); }
-  .filters { grid-template-columns: 1fr 1fr; }
-  .side-panel { position: static; }
+.welcome-card {
+  width: min(760px, 100%);
+  background: linear-gradient(180deg, rgba(18, 30, 44, .98), rgba(7, 15, 24, .98));
+  border-radius: 26px;
+  border: 1px solid var(--line);
+  padding: 32px;
+  box-shadow: var(--shadow);
+  text-align: center;
 }
 
-@media (max-width: 700px) {
-  .nav { flex-wrap: wrap; }
-  .nav-links { width: 100%; justify-content: center; }
-  .hero-card { padding: 22px; min-height: auto; }
-  .hero-stats,
-  .floating-grid,
-  .category-grid,
-  .promo-grid,
-  .reviews,
-  .product-grid,
-  .filters { grid-template-columns: 1fr; }
-  .product-footer { flex-direction: column; align-items: stretch; }
-  .actions { width: 100%; }
-  .actions .tiny-btn { flex: 1; }
-  .modal-body h3 { font-size: 26px; }
+.expert-main {
+  font-size: clamp(1.5rem, 4vw, 2.3rem);
+  color: var(--accent);
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.telegram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  margin-top: 16px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.05);
+  word-break: break-all;
+}
+
+.hidden { display: none !important; }
+
+@media (max-width: 1024px) {
+  .hero-grid, .grid-4, .grid-3, .grid-2, .contact-grid, .course-grid, .lessons-grid, .projects-grid, .resources-grid, .experts-grid, .exam-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .topbar-inner { flex-direction: column; }
+  .nav { justify-content: flex-start; }
+}
+
+@media (max-width: 560px) {
+  .stats, .mini-grid { grid-template-columns: 1fr; }
 }
 
   </style>
 </head>
 <body>
-  <div class="overlay" id="overlay"></div>  <header class="topbar">
-    <div class="container nav">
-      <a class="brand" href="#home">
-        <div class="brand-logo">PF</div>
-        <div>
-          Pullover Fashion
-          <small>متجر ملابس عصري وفخم</small>
-        </div>
-      </a><nav class="nav-links">
-    <a href="#categories">الأقسام</a>
-    <a href="#products">المنتجات</a>
-    <a href="#offers">العروض</a>
-    <a href="#reviews">الآراء</a>
-    <a href="#contact">تواصل</a>
-  </nav>
-
-  <div class="nav-links">
-    <button class="icon-btn" id="themeBtn">✨ ستايل</button>
-    <button class="icon-btn" id="adminBtn">⚙️ إدارة المنتجات</button>
-    <button class="icon-btn cart-toggle" id="cartBtn">🛒 السلة <span class="count" id="cartCount">0</span></button>
-  </div>
-</div>
-
-  </header>  <main>
-    <section class="hero" id="home">
-      <div class="container hero-wrap">
-        <div class="hero-card glass">
-          <div class="eyebrow">🔥 إصدار احترافي متكامل داخل ملف واحد</div>
-          <h1>متجر ملابس مبهر<br>جاهز للبيع والتطوير</h1>
-          <p>
-            هذا المتجر مصمم ليعطيك واجهة قوية جدًا لعرض منتجات الملابس بشكل فاخر، مع بحث وفلاتر وسلة شراء
-            ونافذة تفاصيل المنتج وعروض خاصة وتقييمات وتجربة مستخدم حديثة جدًا.
-          </p><div class="hero-actions">
-        <a href="#products" class="btn btn-primary">ابدأ التصفح</a>
-        <a href="#contact" class="btn btn-secondary">اطلب نسخة خاصة</a>
-      </div>
-
-      <div class="hero-stats">
-        <div class="stat">
-          <strong>12+</strong>
-          أقسام وعروض جاهزة
-        </div>
-        <div class="stat">
-          <strong>100%</strong>
-          HTML + CSS + JS فقط
-        </div>
-        <div class="stat">
-          <strong>سريع</strong>
-          متوافق مع الجوال
-        </div>
+  <div class="welcome-overlay" id="welcomeOverlay">
+    <div class="welcome-card">
+      <div class="eyebrow">منصة مكثفة جاهزة للنشر</div>
+      <h2>مرحباً بك في دليل ألبرت بايثون</h2>
+      <div class="expert-main">Albert Gonzalez</div>
+      <p class="muted">منصة تعليمية قوية جداً لتعلّم Python من الصفر حتى مستوى متقدم، مع أساسيات، اختبارات كثيرة، بنك أسئلة، نصائح خبراء، مشاريع، ومحاكي أوامر تفاعلي.</p>
+      <a class="telegram-link" href="https://t.me/KaliLinux_Arabic" target="_blank" rel="noopener noreferrer">القناة الرسمية: https://t.me/KaliLinux_Arabic</a>
+      <div class="cta-row" style="justify-content:center; margin-top:22px;">
+        <button class="btn primary" onclick="closeWelcome()">دخول الموقع</button>
+        <button class="btn gold" onclick="window.open('https://t.me/KaliLinux_Arabic','_blank')">فتح القناة</button>
       </div>
     </div>
-
-    <div class="hero-showcase">
-      <div class="floating-card glass">
-        <h3 style="margin-top:0">لماذا هذا المتجر قوي؟</h3>
-        <div class="floating-grid">
-          <div class="mini-tile">
-            <h4>واجهة فخمة</h4>
-            <p>تصميم بصري احترافي مع تأثيرات زجاجية وحركات ناعمة.</p>
+  </div>  <div class="toast" id="toast"></div>  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="logo">Py</div>
+        <div class="brand-title">دليل ألبرت بايثون<small>Python Intensive Expert Academy</small></div>
+      </div>
+      <nav class="nav">
+        <a href="#home">الرئيسية</a>
+        <a href="#basics">الأساسيات</a>
+        <a href="#courses">المسارات</a>
+        <a href="#lessons">الدروس</a>
+        <a href="#experts">خبرات الخبراء</a>
+        <a href="#projects">المشاريع</a>
+        <a href="#quiz">الاختبار</a>
+        <a href="#bank">بنك الأسئلة</a>
+        <a href="#terminal">المحاكي</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">التواصل</a>
+      </nav>
+    </div>
+  </header>  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <div class="eyebrow">نسخة جاهزة للنشر بالقناة</div>
+          <h1>منصة <span style="color:var(--accent)">Python</span> مكثفة جداً<br>بشرح، اختبارات، وأسرار خبراء</h1>
+          <p>هذا الموقع مبني ليكون ملف HTML واحد ضخم ومرتب، مناسب للنشر الفوري. يحتوي على أساسيات بايثون، مفاهيم متوسطة ومتقدمة، بنك أسئلة كثيف، اختبار تفاعلي مباشر، محاكي أوامر، مشاريع حقيقية، وقسم خاص بمعلومات الخبراء.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#courses">ابدأ التعلم</a>
+            <button class="btn" onclick="scrollToSection('quiz')">ابدأ الاختبار</button>
+            <button class="btn gold" onclick="toggleTheme()">تبديل الألوان</button>
           </div>
-          <div class="mini-tile">
-            <h4>سلة ذكية</h4>
-            <p>إضافة وتعديل الكمية وحساب المجموع تلقائيًا.</p>
+          <div class="stats">
+            <div class="stat"><strong>18+</strong><span class="muted">وحدة تعليمية</span></div>
+            <div class="stat"><strong>40</strong><span class="muted">سؤال في بنك الأسئلة</span></div>
+            <div class="stat"><strong>8</strong><span class="muted">نصائح خبراء</span></div>
+            <div class="stat"><strong>100%</strong><span class="muted">أزرار تعمل</span></div>
           </div>
-          <div class="mini-tile">
-            <h4>فلترة وبحث</h4>
-            <p>الوصول السريع للموديل حسب القسم أو السعر أو النص.</p>
+        </div>
+        <div class="hero-side">
+          <div class="glass">
+            <h3>ماذا يوجد داخل المنصة؟</h3>
+            <ul class="list">
+              <li>شرح من الصفر للمتغيرات، الدوال، الحلقات، الملفات، OOP.</li>
+              <li>اختبار مباشر مع تقييم المستوى.</li>
+              <li>بنك أسئلة مكثف للمراجعة اليومية.</li>
+              <li>خبرات عملية ونصائح بناء عقلية المبرمج.</li>
+            </ul>
           </div>
-          <div class="mini-tile">
-            <h4>جاهز للتعديل</h4>
-            <p>بدّل الصور والأسعار والاسم والروابط بسهولة جدًا.</p>
+          <div class="glass">
+            <h3>مناسبة لمن؟</h3>
+            <p class="muted">للمبتدئ الذي يريد بداية صحيحة، وللمتوسط الذي يريد ترتيب معلوماته، ولصانع المحتوى أو صاحب قناة يريد موقع جاهز وقوي للنشر.</p>
+            <div class="cta-row">
+              <button class="btn primary" onclick="showToast('هذه النسخة جاهزة للنشر مباشرة.')">جاهز للنشر</button>
+              <button class="btn" onclick="window.open('https://t.me/KaliLinux_Arabic','_blank')">القناة</button>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="offer-card glass">
-        <strong style="color:var(--gold);font-size:15px;">عرض اليوم</strong>
-        <h3 style="margin:10px 0 8px;">خصومات موسمية على التراكات والهوديات</h3>
-        <p style="color:var(--muted);line-height:1.8;margin:0;">استفد من أفضل واجهة لعرض عروضك، مع زر شراء مباشر وسرد واضح لميزات كل منتج.</p>
-      </div>
-
-      <div class="shipping-card glass">
-        <h3 style="margin:0 0 10px;">شحن لجميع المحافظات</h3>
-        <p style="color:var(--muted);line-height:1.8;margin:0;">يمكنك ربط هذا القالب لاحقًا مع واتساب، تليجرام، نموذج طلب، أو بوابة دفع إلكترونية.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="categories">
+    </section><section id="basics">
   <div class="container">
     <div class="section-head">
       <div>
-        <h2>أقسام المتجر</h2>
-        <p>تنظيم واضح يساعد الزبون يوصل للموديل المطلوب بسرعة.</p>
+        <h2>الأساسيات المكثفة</h2>
+        <p>أهم ما يجب أن تتقنه قبل الانتقال للمراحل الأعلى.</p>
       </div>
     </div>
-
-    <div class="category-grid">
-      <div class="category glass">
-        <div style="font-size:28px;">👕</div>
-        <h3>تيشيرتات</h3>
-        <p>موديلات كاجوال يومية بخامات ناعمة وألوان مطلوبة بالسوق.</p>
-      </div>
-      <div class="category glass">
-        <div style="font-size:28px;">🧥</div>
-        <h3>هوديات</h3>
-        <p>قصات عصرية دافئة مع تفاصيل شبابية وخيارات متعددة.</p>
-      </div>
-      <div class="category glass">
-        <div style="font-size:28px;">👖</div>
-        <h3>تراكات</h3>
-        <p>أطقم رياضية كاملة مناسبة للبيع المفرد والجملة.</p>
-      </div>
-      <div class="category glass">
-        <div style="font-size:28px;">✨</div>
-        <h3>عروض خاصة</h3>
-        <p>ركن مخصص للخصومات والموديلات الموسمية والسحب السريع.</p>
-      </div>
+    <div class="grid-4">
+      <article class="feature"><div class="icon">🔤</div><h3>المتغيرات</h3><p class="muted">فهم تخزين البيانات بأسماء واضحة واستخدامها داخل البرنامج.</p></article>
+      <article class="feature"><div class="icon">🧮</div><h3>العمليات</h3><p class="muted">الجمع والطرح والمقارنة والمنطق البرمجي أساس كل خوارزمية.</p></article>
+      <article class="feature"><div class="icon">🔁</div><h3>الحلقات</h3><p class="muted">تكرار الأوامر بذكاء باستخدام <code>for</code> و<code>while</code>.</p></article>
+      <article class="feature"><div class="icon">🧠</div><h3>المنطق</h3><p class="muted">الجمل الشرطية والقرارات تصنع سلوك البرنامج.</p></article>
     </div>
   </div>
 </section>
 
-<section id="adminPanelSection">
+<section id="courses">
   <div class="container">
     <div class="section-head">
       <div>
-        <h2>لوحة إدارة المنتجات</h2>
-        <p>من هنا تگدر تضيف منتج جديد، تعدل منتج موجود، أو تحذف أي منتج بسهولة.</p>
+        <h2>المسارات التعليمية</h2>
+        <p>فلتر المسارات وابحث عن أي موضوع داخلها.</p>
+      </div>
+      <div class="filters">
+        <button class="btn active filter-btn" data-filter="all">الكل</button>
+        <button class="btn filter-btn" data-filter="beginner">مبتدئ</button>
+        <button class="btn filter-btn" data-filter="intermediate">متوسط</button>
+        <button class="btn filter-btn" data-filter="advanced">متقدم</button>
       </div>
     </div>
+    <input id="courseSearch" class="search-box" type="text" placeholder="ابحث: متغيرات، دوال، OOP، ملفات، مشاريع..." />
+    <div class="course-grid" id="courseGrid" style="margin-top:16px;">
+      <article class="course-card" data-category="beginner" data-title="أساسيات بايثون المتغيرات الادخال والاخراج والانواع">
+        <span class="badge">مبتدئ</span>
+        <h3>المرحلة 1: البداية الصلبة</h3>
+        <p class="muted">مدخل كامل لـ Python: التثبيت، أول برنامج، المتغيرات، الأنواع، العمليات، الإدخال والإخراج.</p>
+        <ul class="list">
+          <li>ما هي Python ولماذا قوية؟</li>
+          <li><code>print()</code> و <code>input()</code></li>
+          <li>string / int / float / bool</li>
+          <li>أساسيات التفكير البرمجي</li>
+        </ul>
+        <div class="cta-row"><button class="btn primary" onclick="activateLesson('lesson1')">ابدأ الآن</button></div>
+      </article>
 
-    <div class="products-wrap">
-      <aside class="side-panel glass">
-        <h3>إضافة / تعديل منتج</h3>
-        <div class="footer-list">
-          <div class="field"><input id="adminTitle" type="text" placeholder="اسم المنتج" /></div>
-          <div class="field"><select id="adminCategory"><option value="تيشيرت">تيشيرت</option><option value="هودي">هودي</option><option value="تراك">تراك</option></select></div>
-          <div class="field"><input id="adminPrice" type="number" placeholder="السعر الحالي" /></div>
-          <div class="field"><input id="adminOldPrice" type="number" placeholder="السعر القديم" /></div>
-          <div class="field"><input id="adminRating" type="number" min="1" max="5" step="0.1" placeholder="التقييم من 1 إلى 5" /></div>
-          <div class="field"><input id="adminBadge" type="text" placeholder="شارة المنتج مثل: جديد / خصم" /></div>
-          <div class="field"><input id="adminTag" type="text" placeholder="وسم سريع مثل: رياضي / شتوي" /></div>
-          <div class="field"><input id="adminColors" type="text" placeholder="الألوان مثال: أسود, أبيض, كحلي" /></div>
-          <div class="field"><input id="adminSizes" type="text" placeholder="القياسات مثال: M, L, XL, XXL" /></div>
-          <div class="field"><input id="adminImage" type="text" placeholder="رابط صورة المنتج" /></div>
-          <div class="field"><input id="adminDesc" type="text" placeholder="وصف المنتج" /></div>
-          <input id="adminEditId" type="hidden" />
-          <button class="btn btn-primary" id="saveProductBtn">حفظ المنتج</button>
-          <button class="btn" id="resetAdminFormBtn">تفريغ الحقول</button>
-        </div>
-      </aside>
-      <div>
-        <div class="glass" style="border-radius:24px;padding:18px;overflow:auto;">
-          <h3 style="margin-top:0">قائمة المنتجات الحالية</h3>
-          <div id="adminTableWrap"></div>
-        </div>
-      </div>
+      <article class="course-card" data-category="beginner" data-title="الشروط والحلقات والدوال والقوائم والقواميس">
+        <span class="badge">مبتدئ</span>
+        <h3>المرحلة 2: بناء المنطق</h3>
+        <p class="muted">تعلم بناء العقلية البرمجية عبر الشروط، الحلقات، الدوال، القوائم، والقواميس.</p>
+        <ul class="list">
+          <li>if / elif / else</li>
+          <li>for / while</li>
+          <li>الدوال والمعاملات</li>
+          <li>List / Dict / Tuple / Set</li>
+        </ul>
+        <div class="cta-row"><button class="btn primary" onclick="activateLesson('lesson4')">افتح الوحدة</button></div>
+      </article>
+
+      <article class="course-card" data-category="intermediate" data-title="الملفات الاخطاء والوحدات">
+        <span class="badge">متوسط</span>
+        <h3>المرحلة 3: ملفات وأخطاء</h3>
+        <p class="muted">تعامل مع الملفات النصية، اقرأ واكتب، والتقط الأخطاء باحتراف.</p>
+        <ul class="list">
+          <li>فتح وقراءة الملفات</li>
+          <li>حفظ البيانات</li>
+          <li>try / except / finally</li>
+          <li>استيراد الوحدات</li>
+        </ul>
+        <div class="cta-row"><button class="btn primary" onclick="activateLesson('lesson9')">افتح الوحدة</button></div>
+      </article>
+
+      <article class="course-card" data-category="intermediate" data-title="البرمجة الكائنية oop classes inheritance encapsulation">
+        <span class="badge">متوسط</span>
+        <h3>المرحلة 4: OOP</h3>
+        <p class="muted">ابدأ تنظيم المشاريع بشكل محترف باستخدام الكلاسات والكائنات والوراثة.</p>
+        <ul class="list">
+          <li>class / object</li>
+          <li>constructor و <code>__init__</code></li>
+          <li>تغليف ووراثة</li>
+          <li>أمثلة عملية</li>
+        </ul>
+        <div class="cta-row"><button class="btn primary" onclick="activateLesson('lesson12')">افتح الوحدة</button></div>
+      </article>
+
+      <article class="course-card" data-category="advanced" data-title="التمتة ومشاريع سطر الاوامر python automation cli">
+        <span class="badge">متقدم</span>
+        <h3>المرحلة 5: الأتمتة وCLI</h3>
+        <p class="muted">تعلم كيف تبني أدوات توفر الوقت والجهد في الحياة اليومية.</p>
+        <ul class="list">
+          <li>تنظيم الملفات</li>
+          <li>سكريبتات بسيطة مفيدة</li>
+          <li>واجهات نصية CLI</li>
+          <li>تسريع العمل</li>
+        </ul>
+        <div class="cta-row"><button class="btn primary" onclick="activateLesson('lesson15')">افتح الوحدة</button></div>
+      </article>
+
+      <article class="course-card" data-category="advanced" data-title="البيانات والمكتبات numpy pandas matplotlib">
+        <span class="badge">متقدم</span>
+        <h3>المرحلة 6: مدخل البيانات</h3>
+        <p class="muted">تعرف على عالم البيانات والمكتبات الأساسية المستخدمة فيه.</p>
+        <ul class="list">
+          <li>مكتبات Python المشهورة</li>
+          <li>قراءة CSV</li>
+          <li>التعامل مع الجداول</li>
+          <li>الرسم البياني المبدئي</li>
+        </ul>
+        <div class="cta-row"><button class="btn primary" onclick="activateLesson('lesson18')">افتح الوحدة</button></div>
+      </article>
     </div>
   </div>
 </section>
 
-<section id="products">
+<section id="lessons">
   <div class="container">
     <div class="section-head">
       <div>
-        <h2>منتجات المتجر</h2>
-        <p>بحث سريع، فلترة ذكية، وعرض احترافي لكل قطعة.</p>
+        <h2>الدروس المكثفة</h2>
+        <p>18 درساً أساسياً ومهماً جداً. اضغط على أي درس لفتحه.</p>
       </div>
-      <button class="btn" id="clearFilters">إعادة ضبط الفلاتر</button>
-    </div>
-
-    <div class="filters">
-      <div class="field"><input type="text" id="searchInput" placeholder="ابحث عن منتج، مثل: هودي، تراك، أسود..." /></div>
-      <div class="field">
-        <select id="categoryFilter">
-          <option value="all">كل الأقسام</option>
-          <option value="تيشيرت">تيشيرت</option>
-          <option value="هودي">هودي</option>
-          <option value="تراك">تراك</option>
-        </select>
-      </div>
-      <div class="field">
-        <select id="priceFilter">
-          <option value="all">كل الأسعار</option>
-          <option value="low">أقل من 30,000</option>
-          <option value="mid">30,000 - 50,000</option>
-          <option value="high">أكثر من 50,000</option>
-        </select>
-      </div>
-      <div class="field">
-        <select id="sortFilter">
-          <option value="featured">ترتيب مميز</option>
-          <option value="priceAsc">السعر: الأقل أولاً</option>
-          <option value="priceDesc">السعر: الأعلى أولاً</option>
-          <option value="rating">الأعلى تقييمًا</option>
-        </select>
-      </div>
-      <button class="btn btn-primary" id="applyFilters">تطبيق</button>
-    </div>
-
-    <div class="products-wrap">
-      <aside class="side-panel glass">
-        <h3>وسوم سريعة</h3>
-        <div class="tags" id="quickTags">
-          <button class="tag active" data-tag="all">الكل</button>
-          <button class="tag" data-tag="جديد">جديد</button>
-          <button class="tag" data-tag="الأكثر مبيعًا">الأكثر مبيعًا</button>
-          <button class="tag" data-tag="خصم">خصم</button>
-          <button class="tag" data-tag="شتوي">شتوي</button>
-          <button class="tag" data-tag="رياضي">رياضي</button>
-        </div>
-
-        <div style="height:18px"></div>
-        <h3>مميزات المتجر</h3>
-        <div class="footer-list">
-          <div class="pill">✅ كود منظم وسهل التعديل</div>
-          <div class="pill">✅ سلة شراء محفوظة محليًا</div>
-          <div class="pill">✅ تصميم متجاوب مع الهاتف</div>
-          <div class="pill">✅ نوافذ تفاصيل لكل منتج</div>
-          <div class="pill">✅ جاهز للربط مع واتساب أو تليجرام</div>
-        </div>
-      </aside>
-
       <div>
-        <div class="product-grid" id="productGrid"></div>
+        <span class="muted">تقدّمك في الدروس</span>
+        <div class="progress-wrap"><div class="progress-bar" id="lessonProgress"></div></div>
       </div>
+    </div>
+
+    <div class="tabs">
+      <button class="btn active lesson-tab" data-target="lesson1">1</button>
+      <button class="btn lesson-tab" data-target="lesson2">2</button>
+      <button class="btn lesson-tab" data-target="lesson3">3</button>
+      <button class="btn lesson-tab" data-target="lesson4">4</button>
+      <button class="btn lesson-tab" data-target="lesson5">5</button>
+      <button class="btn lesson-tab" data-target="lesson6">6</button>
+      <button class="btn lesson-tab" data-target="lesson7">7</button>
+      <button class="btn lesson-tab" data-target="lesson8">8</button>
+      <button class="btn lesson-tab" data-target="lesson9">9</button>
+      <button class="btn lesson-tab" data-target="lesson10">10</button>
+      <button class="btn lesson-tab" data-target="lesson11">11</button>
+      <button class="btn lesson-tab" data-target="lesson12">12</button>
+      <button class="btn lesson-tab" data-target="lesson13">13</button>
+      <button class="btn lesson-tab" data-target="lesson14">14</button>
+      <button class="btn lesson-tab" data-target="lesson15">15</button>
+      <button class="btn lesson-tab" data-target="lesson16">16</button>
+      <button class="btn lesson-tab" data-target="lesson17">17</button>
+      <button class="btn lesson-tab" data-target="lesson18">18</button>
+    </div>
+
+    <div class="lessons-grid">
+      <article class="lesson-card active" id="lesson1"><h3>الدرس 1: ما هي Python؟</h3><p class="muted">لغة سهلة القراءة وقوية في الأتمتة، الويب، الذكاء الاصطناعي، وتحليل البيانات.</p><ul class="list"><li>سهلة للمبتدئ</li><li>سريعة في التطوير</li><li>مجتمع ضخم ومكتبات كثيرة</li></ul></article>
+      <article class="lesson-card" id="lesson2"><h3>الدرس 2: أول برنامج</h3><p class="muted">ابدأ بـ <code>print('Hello World')</code> لفهم المخرجات.</p><ul class="list"><li>تعرف على بيئة التشغيل</li><li>جرّب التعديل على النص</li><li>نفّذ أكثر من سطر</li></ul></article>
+      <article class="lesson-card" id="lesson3"><h3>الدرس 3: المتغيرات وأنواع البيانات</h3><p class="muted">المتغير يخزن قيمة ويمكنك تغييرها لاحقاً.</p><ul class="list"><li><code>name='Ali'</code></li><li><code>age=20</code></li><li><code>is_admin=False</code></li></ul></article>
+      <article class="lesson-card" id="lesson4"><h3>الدرس 4: الشروط</h3><p class="muted">الشروط تجعل البرنامج يقرر حسب الحالة.</p><ul class="list"><li><code>if</code> للحالة الأساسية</li><li><code>elif</code> لاحتمالات إضافية</li><li><code>else</code> للحالة الأخيرة</li></ul></article>
+      <article class="lesson-card" id="lesson5"><h3>الدرس 5: الحلقات</h3><p class="muted">التكرار يوفر عليك كتابة نفس السطر مرات كثيرة.</p><ul class="list"><li><code>for i in range(5)</code></li><li><code>while condition</code></li><li>استخدم break و continue بحذر</li></ul></article>
+      <article class="lesson-card" id="lesson6"><h3>الدرس 6: الدوال</h3><p class="muted">الدوال تنظم الكود وتجعله قابلاً لإعادة الاستخدام.</p><ul class="list"><li><code>def greet(name):</code></li><li>المعاملات parameters</li><li>القيمة المعادة return</li></ul></article>
+      <article class="lesson-card" id="lesson7"><h3>الدرس 7: القوائم</h3><p class="muted">القائمة تخزن عناصر كثيرة بترتيب محدد.</p><ul class="list"><li><code>append()</code></li><li><code>remove()</code></li><li>الوصول بالعناصر عبر index</li></ul></article>
+      <article class="lesson-card" id="lesson8"><h3>الدرس 8: القواميس</h3><p class="muted">القاموس يخزن البيانات بطريقة مفتاح/قيمة.</p><ul class="list"><li><code>user['name']</code></li><li>إضافة وتعديل القيم</li><li>مفيد للبيانات المنظمة</li></ul></article>
+      <article class="lesson-card" id="lesson9"><h3>الدرس 9: الملفات</h3><p class="muted">اقرأ واكتب البيانات في ملفات خارجية.</p><ul class="list"><li><code>with open(...)</code></li><li><code>read()</code> و <code>write()</code></li><li>استخدم UTF-8 عند الحاجة</li></ul></article>
+      <article class="lesson-card" id="lesson10"><h3>الدرس 10: الأخطاء والاستثناءات</h3><p class="muted">برمج بشكل آمن باستخدام <code>try/except</code>.</p><ul class="list"><li>منع توقف البرنامج</li><li>إظهار رسائل مناسبة</li><li>التعامل مع المدخلات الخطأ</li></ul></article>
+      <article class="lesson-card" id="lesson11"><h3>الدرس 11: الوحدات</h3><p class="muted">الموديولات تساعدك على تقسيم البرامج واستخدام مكتبات جاهزة.</p><ul class="list"><li><code>import math</code></li><li><code>from datetime import datetime</code></li><li>إعادة استخدام الأكواد</li></ul></article>
+      <article class="lesson-card" id="lesson12"><h3>الدرس 12: OOP المقدمة</h3><p class="muted">ابدأ التفكير بالكائنات بدل الأسطر المنفصلة فقط.</p><ul class="list"><li>فهم class و object</li><li>الخصائص والدوال الداخلية</li><li>تنظيم المشاريع الكبيرة</li></ul></article>
+      <article class="lesson-card" id="lesson13"><h3>الدرس 13: constructor و self</h3><p class="muted">المنشئ يجهز الكائن منذ لحظة إنشائه.</p><ul class="list"><li><code>__init__</code></li><li><code>self.name = name</code></li><li>تهيئة الخصائص</li></ul></article>
+      <article class="lesson-card" id="lesson14"><h3>الدرس 14: الوراثة والتغليف</h3><p class="muted">أعد استخدام الكود بشكل أذكى عبر inheritance.</p><ul class="list"><li>وراثة من class أخرى</li><li>تخصيص السلوك</li><li>حماية بنية المشروع</li></ul></article>
+      <article class="lesson-card" id="lesson15"><h3>الدرس 15: الأتمتة</h3><p class="muted">استخدم Python في أعمال مفيدة يومياً.</p><ul class="list"><li>إعادة تسمية ملفات</li><li>قراءة سجلات</li><li>إنشاء تقارير بسيطة</li></ul></article>
+      <article class="lesson-card" id="lesson16"><h3>الدرس 16: CLI</h3><p class="muted">واجهات سطر الأوامر ممتازة لبناء أدوات عملية خفيفة.</p><ul class="list"><li>استقبال الوسائط</li><li>عرض نتائج مرتبة</li><li>بناء أدوات سريعة</li></ul></article>
+      <article class="lesson-card" id="lesson17"><h3>الدرس 17: المشاريع الواقعية</h3><p class="muted">ابدأ بمشروع صغير ثم وسّعه تدريجياً.</p><ul class="list"><li>آلة حاسبة</li><li>مدير مهام</li><li>مولد كلمات مرور</li></ul></article>
+      <article class="lesson-card" id="lesson18"><h3>الدرس 18: المكتبات والبيانات</h3><p class="muted">انفتح على المكتبات القوية بعد تثبيت القواعد.</p><ul class="list"><li>NumPy</li><li>Pandas</li><li>Matplotlib</li></ul></article>
     </div>
   </div>
 </section>
 
-<section id="offers">
+<section id="experts">
   <div class="container">
     <div class="section-head">
       <div>
-        <h2>عروض خاصة</h2>
-        <p>استخدم هذا القسم لرفع التحويلات وجذب الزبون بسرعة.</p>
+        <h2>معلومات خبراء</h2>
+        <p>خلاصة نصائح مهمة جداً تساعدك تصير أقوى وأسرع في التعلم.</p>
       </div>
     </div>
-
-    <div class="promo-grid">
-      <div class="promo-card glass">
-        <div class="eyebrow" style="margin-bottom:12px;">خصم 20%</div>
-        <h3>تشكيلة الشتاء</h3>
-        <p>عرض خاص على الهوديات والتراكات الشتوية مع واجهة تسويق جاهزة للعرض.</p>
-      </div>
-      <div class="promo-card glass">
-        <div class="eyebrow" style="margin-bottom:12px;">شحن سريع</div>
-        <h3>توصيل 24 - 48 ساعة</h3>
-        <p>أضف شروط التوصيل والمدن المغطاة وامنع تردد الزبون في اتخاذ القرار.</p>
-      </div>
-      <div class="promo-card glass">
-        <div class="eyebrow" style="margin-bottom:12px;">بيع جملة</div>
-        <h3>أسعار خاصة للتجار</h3>
-        <p>مناسب أيضًا إذا تريد تعرض سعر المفرد وسعر الدرزن داخل نفس الصفحة.</p>
-      </div>
+    <div class="experts-grid">
+      <article class="expert-card"><div class="expert-name">1. اكتب بيدك</div><p class="muted">لا تكتفِ بالقراءة. انسخ المثال ثم بدّله ثم اكتب نسخة خاصة بك.</p><div class="tag-row"><span class="tag">ممارسة</span><span class="tag">تثبيت</span></div></article>
+      <article class="expert-card"><div class="expert-name">2. افهم الأخطاء</div><p class="muted">رسائل الخطأ ليست عدوك. اقرأها سطراً سطراً، فهي دليل مباشر لمشكلتك.</p><div class="tag-row"><span class="tag">Debugging</span><span class="tag">منطق</span></div></article>
+      <article class="expert-card"><div class="expert-name">3. لا تقفز للمكتبات</div><p class="muted">المبتدئ الذي يقفز للمكتبات بسرعة يضيع لاحقاً. الأساس أولاً ثم الأدوات.</p><div class="tag-row"><span class="tag">أساسيات</span><span class="tag">ترتيب</span></div></article>
+      <article class="expert-card"><div class="expert-name">4. مشاريع صغيرة أفضل</div><p class="muted">ابدأ بمشروع بسيط جداً لكن أنجزه بالكامل. الإنجاز أهم من الحلم الكبير غير المكتمل.</p><div class="tag-row"><span class="tag">MVP</span><span class="tag">إنجاز</span></div></article>
+      <article class="expert-card"><div class="expert-name">5. سمِّ المتغيرات جيداً</div><p class="muted">الأسماء الواضحة تقلل الأخطاء وتسهل الفهم على أي شخص يقرأ كودك.</p><div class="tag-row"><span class="tag">Clean Code</span><span class="tag">وضوح</span></div></article>
+      <article class="expert-card"><div class="expert-name">6. راجع يومياً</div><p class="muted">حتى 20 دقيقة مراجعة يومية تعادل ساعات ضائعة من التعلم المتقطع.</p><div class="tag-row"><span class="tag">استمرارية</span><span class="tag">ترسيخ</span></div></article>
+      <article class="expert-card"><div class="expert-name">7. تعلّم القراءة</div><p class="muted">لا تتعلم الكتابة فقط، تعلّم كيف تقرأ كود الآخرين وتفهمه.</p><div class="tag-row"><span class="tag">تحليل</span><span class="tag">خبرة</span></div></article>
+      <article class="expert-card"><div class="expert-name">8. ابنِ عقلية حل المشكلات</div><p class="muted">المبرمج القوي ليس من يحفظ، بل من يقسم المشكلة إلى أجزاء صغيرة قابلة للحل.</p><div class="tag-row"><span class="tag">Problem Solving</span><span class="tag">منهجية</span></div></article>
     </div>
   </div>
 </section>
 
-<section id="reviews">
+<section id="projects">
   <div class="container">
     <div class="section-head">
       <div>
-        <h2>آراء العملاء</h2>
-        <p>الثقة ترفع المبيعات، لذلك هذا القسم مهم جدًا داخل أي متجر.</p>
+        <h2>مشاريع تدريبية</h2>
+        <p>أفضل المشاريع العملية للمبتدئ والمتوسط.</p>
+      </div>
+      <div class="actions">
+        <button class="btn" onclick="shuffleProjects()">تبديل الترتيب</button>
+        <button class="btn primary" onclick="showToast('ابدأ بآلة حاسبة أو مدير مهام ثم انتقل لنظام تسجيل.')">أفضل بداية</button>
       </div>
     </div>
+    <div class="projects-grid" id="projectsGrid">
+      <article class="project-card"><h3>آلة حاسبة</h3><p class="muted">تفهم بها العمليات والدوال والمدخلات.</p></article>
+      <article class="project-card"><h3>مدير مهام</h3><p class="muted">تتدرب على القوائم والحفظ والتعديل والحذف.</p></article>
+      <article class="project-card"><h3>مولد كلمات مرور</h3><p class="muted">ينمّي فهمك للعشوائية والمنطق البرمجي.</p></article>
+      <article class="project-card"><h3>قارئ ملفات</h3><p class="muted">يجعلك تتقن التعامل مع النصوص والملفات.</p></article>
+      <article class="project-card"><h3>نظام تسجيل طلاب</h3><p class="muted">ممتاز للتدرب على OOP والقواميس.</p></article>
+      <article class="project-card"><h3>محلل CSV</h3><p class="muted">بداية ممتازة لدخول مجال البيانات.</p></article>
+    </div>
+  </div>
+</section>
 
-    <div class="reviews">
-      <div class="review glass">
-        <div class="review-top">
-          <div class="avatar">م</div>
-          <div>
-            <strong>محمد</strong><br>
-            <span style="color:var(--gold)">★★★★★</span>
-          </div>
+<section id="quiz">
+  <div class="container grid-2">
+    <div class="quiz-card">
+      <h2>اختبار تفاعلي</h2>
+      <p class="muted">اختبار سريع من 10 أسئلة لتقييمك.</p>
+      <div id="quizArea">
+        <div class="quiz-question" id="quizQuestion"></div>
+        <div class="answers" id="quizAnswers"></div>
+        <div class="quiz-actions" style="margin-top:14px;">
+          <button class="btn" onclick="nextQuestion()">السؤال التالي</button>
+          <button class="btn primary" onclick="restartQuiz()">إعادة الاختبار</button>
         </div>
-        <p>التصميم مرتب جدًا والمنتجات واضحة، حسّيت نفسي داخل متجر حقيقي وراقي.</p>
       </div>
-      <div class="review glass">
-        <div class="review-top">
-          <div class="avatar">ع</div>
-          <div>
-            <strong>علي</strong><br>
-            <span style="color:var(--gold)">★★★★★</span>
-          </div>
-        </div>
-        <p>أكثر شيء عجبني هو سرعة التصفح وشكل البطاقات والسلة، الكود فعلاً قوي.</p>
-      </div>
-      <div class="review glass">
-        <div class="review-top">
-          <div class="avatar">ز</div>
-          <div>
-            <strong>زينب</strong><br>
-            <span style="color:var(--gold)">★★★★★</span>
-          </div>
-        </div>
-        <p>ينفع جدًا لعرض موديلات الملابس وربطه مع حسابات التواصل أو واتساب بكل سهولة.</p>
+    </div>
+    <div class="quiz-card">
+      <h3>النتيجة</h3>
+      <div class="score-box" id="scoreBox">ابدأ الاختبار لتظهر نتيجتك هنا.</div>
+      <div class="mini-grid">
+        <div class="info-box"><strong>0 - 3</strong><p class="muted">تحتاج ترسيخ الأساسيات.</p></div>
+        <div class="info-box"><strong>4 - 6</strong><p class="muted">جيد وتحتاج تدريب أكثر.</p></div>
+        <div class="info-box"><strong>7 - 8</strong><p class="muted">مستوى قوي كبداية.</p></div>
+        <div class="info-box"><strong>9 - 10</strong><p class="muted">ممتاز جداً.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<section>
+<section id="bank">
   <div class="container">
-    <div class="cta glass">
+    <div class="section-head">
       <div>
-        <h2>حوّل الزوار إلى طلبات حقيقية</h2>
-        <p>يمكنك تعديل اسم المتجر، صور المنتجات، الأسعار، أزرار الطلب، وروابط التواصل خلال دقائق فقط.</p>
+        <h2>بنك الأسئلة المكثف</h2>
+        <p>40 سؤالاً سريعاً للمراجعة. اضغط نسخ أو تصفحها داخل الموقع.</p>
       </div>
-      <div class="hero-actions">
-        <a href="#products" class="btn btn-primary">شاهد المنتجات</a>
-        <a href="#contact" class="btn">تواصل معنا</a>
+      <div class="actions">
+        <button class="btn" onclick="copyQuestionBank()">نسخ الأسئلة</button>
+        <button class="btn primary" onclick="showToast('استخدم بنك الأسئلة للمراجعة اليومية.')">نصيحة</button>
+      </div>
+    </div>
+    <div class="exam-grid">
+      <div class="exam-bank-card">
+        <h3>الأسئلة</h3>
+        <div class="question-bank" id="questionBank"></div>
+      </div>
+      <div class="exam-bank-card">
+        <h3>طريقة الاستفادة</h3>
+        <ul class="list">
+          <li>اقرأ 5 أسئلة يومياً وحاول الإجابة قبل النظر للحل.</li>
+          <li>إذا أخطأت، ارجع للدرس المرتبط بالسؤال مباشرة.</li>
+          <li>حوّل الأسئلة إلى كود تطبيقي كلما أمكن.</li>
+          <li>أعد بنك الأسئلة كل أسبوع لقياس تقدمك.</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-  </main>  <footer id="contact">
-    <div class="container footer-grid">
-      <div class="footer-card glass">
-        <h4>Pullover Fashion</h4>
-        <p style="margin:0;line-height:1.9;">متجر ملابس احترافي مصمم ليعرض منتجاتك بأفضل شكل، ويمنحك أساس قوي جدًا لبناء براند فخم داخل العراق أو خارجه.</p>
+<section id="terminal">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>محاكي الأوامر التعليمي</h2>
+        <p>جرّب أوامر: help - variables - loops - functions - files - oop - clear</p>
       </div>
-      <div class="footer-card glass">
-        <h4>روابط سريعة</h4>
-        <div class="footer-list">
-          <a href="#home">الرئيسية</a>
-          <a href="#categories">الأقسام</a>
-          <a href="#products">المنتجات</a>
-          <a href="#offers">العروض</a>
-        </div>
-      </div>
-      <div class="footer-card glass">
-        <h4>تواصل</h4>
-        <div class="footer-list">
-          <a href="https://t.me/ShahnGamesApps" target="_blank">تيليجرام: @ShahnGamesApps</a>
-          <a href="mailto:info@pullover-fashion.com">info@pullover-fashion.com</a>
-          <a href="tel:+9647700000000">0770 000 0000</a>
-        </div>
+      <div class="term-actions">
+        <button class="btn" onclick="runPreset('help')">help</button>
+        <button class="btn" onclick="runPreset('variables')">variables</button>
+        <button class="btn" onclick="runPreset('loops')">loops</button>
+        <button class="btn" onclick="runPreset('functions')">functions</button>
+        <button class="btn primary" onclick="runPreset('oop')">oop</button>
       </div>
     </div>
-  </footer>  <aside class="cart-drawer" id="cartDrawer">
-    <div class="cart-head">
-      <h3>سلة الشراء</h3>
-      <button class="icon-btn" id="closeCart">✕</button>
-    </div>
-    <div class="cart-items" id="cartItems"></div>
-    <div class="cart-footer">
-      <div class="summary-row"><span>المجموع الفرعي</span><strong id="subtotal">0 د.ع</strong></div>
-      <div class="summary-row"><span>الشحن</span><strong id="shipping">4,000 د.ع</strong></div>
-      <div class="summary-row total"><span>الإجمالي</span><strong id="total">0 د.ع</strong></div>
-      <button class="btn btn-primary" id="checkoutBtn">إتمام الطلب</button>
-      <button class="btn" id="clearCartBtn">تفريغ السلة</button>
-    </div>
-  </aside>  <div class="modal" id="productModal">
-    <div class="modal-card glass">
-      <div class="modal-media">
-        <img id="modalImage" src="" alt="صورة المنتج" />
+    <div class="terminal">
+      <div class="terminal-head">
+        <div class="dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+        <strong>Python Expert Shell</strong>
       </div>
-      <div class="modal-body">
-        <button class="close-btn" id="closeModal">✕</button>
-        <div class="eyebrow" id="modalBadge">منتج مميز</div>
-        <h3 id="modalTitle">اسم المنتج</h3>
-        <div class="stars" id="modalRating">★★★★★</div>
-        <p id="modalDesc"></p>
-        <strong style="display:block;font-size:28px;margin:18px 0 8px" id="modalPrice">0 د.ع</strong>
-        <div>
-          <strong>الألوان المتوفرة</strong>
-          <div class="color-dots" id="modalColors"></div>
-        </div>
-        <div>
-          <strong>القياسات</strong>
-          <div class="size-list" id="modalSizes"></div>
-        </div>
-        <div class="hero-actions" style="margin-top:22px;">
-          <button class="btn btn-primary" id="modalAddToCart">أضف إلى السلة</button>
-          <button class="btn" id="modalBuyNow">شراء مباشر</button>
-        </div>
-      </div>
+      <div class="terminal-body" id="terminalOutput">مرحباً بك في محاكي بايثون التعليمي.\nاكتب help لعرض الأوامر المتاحة.\n</div>
+      <input id="terminalInput" class="terminal-input" type="text" placeholder="> اكتب أمراً ثم اضغط Enter" />
     </div>
-  </div>  <div class="toast-wrap" id="toastWrap"></div>  <script>
-    let products = JSON.parse(localStorage.getItem('pf_products') || 'null') || [
-      {
-        id: 1,
-        title: 'تراك رياضي فاخر',
-        category: 'تراك',
-        price: 42000,
-        oldPrice: 52000,
-        rating: 4.9,
-        badge: 'الأكثر مبيعًا',
-        tag: 'رياضي',
-        colors: ['أسود', 'رصاصي', 'كحلي'],
-        sizes: ['M', 'L', 'XL', 'XXL'],
-        desc: 'تراك كامل بخامة مريحة وتصميم عصري مناسب للبيع المفرد والجملة، مع تفاصيل رياضية جذابة.',
-        image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80'
-      },
-      {
-        id: 2,
-        title: 'هودي شتوي أنيق',
-        category: 'هودي',
-        price: 36000,
-        oldPrice: 43000,
-        rating: 4.7,
-        badge: 'خصم',
-        tag: 'شتوي',
-        colors: ['بيج', 'أسود', 'أبيض'],
-        sizes: ['M', 'L', 'XL'],
-        desc: 'هودي شبابي مميز بقصة حديثة ولمسة فخمة مناسبة للموسم الشتوي وللإعلانات التسويقية.',
-        image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=80'
-      },
-      {
-        id: 3,
-        title: 'تيشيرت كاجوال مطبوع',
-        category: 'تيشيرت',
-        price: 22000,
-        oldPrice: 28000,
-        rating: 4.6,
-        badge: 'جديد',
-        tag: 'جديد',
-        colors: ['أبيض', 'أخضر', 'أسود'],
-        sizes: ['S', 'M', 'L', 'XL'],
-        desc: 'تيشيرت يومي بخامة ناعمة وطبعة جذابة جدًا، مناسب للشباب ولمبيعات الصيف السريعة.',
-        image: 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=1000&q=80'
-      },
-      {
-        id: 4,
-        title: 'تراك شبابي مميز',
-        category: 'تراك',
-        price: 54000,
-        oldPrice: 61000,
-        rating: 5.0,
-        badge: 'جديد',
-        tag: 'جديد',
-        colors: ['زيتي', 'أسود'],
-        sizes: ['L', 'XL', 'XXL'],
-        desc: 'تراك عالي الجودة بخياطة مرتبة ومظهر قوي جدًا، مناسب للصور التسويقية الفخمة.',
-        image: 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1000&q=80'
-      },
-      {
-        id: 5,
-        title: 'هودي أوفر سايز',
-        category: 'هودي',
-        price: 31000,
-        oldPrice: 39000,
-        rating: 4.5,
-        badge: 'خصم',
-        tag: 'خصم',
-        colors: ['رمادي', 'بني'],
-        sizes: ['M', 'L', 'XL', 'XXL'],
-        desc: 'قصة أوفر سايز مطلوبة جدًا في السوق، خامة مريحة ومناسبة لفئة الشباب.',
-        image: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1000&q=80'
-      },
-      {
-        id: 6,
-        title: 'تيشيرت أساسي فاخر',
-        category: 'تيشيرت',
-        price: 18000,
-        oldPrice: 24000,
-        rating: 4.4,
-        badge: 'سريع البيع',
-        tag: 'الأكثر مبيعًا',
-        colors: ['أسود', 'أبيض', 'أحمر'],
-        sizes: ['M', 'L', 'XL'],
-        desc: 'تيشيرت أساسي بتفصيل ممتاز يناسب البيع اليومي والطلبات السريعة.',
-        image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1000&q=80'
-      }
-    ];
+  </div>
+</section>
 
-    const state = {
-      search: '',
-      category: 'all',
-      price: 'all',
-      sort: 'featured',
-      quickTag: 'all',
-      cart: JSON.parse(localStorage.getItem('pf_cart') || '[]'),
-      wishlist: JSON.parse(localStorage.getItem('pf_wishlist') || '[]'),
-      currentProduct: null,
-      altTheme: false
+<section id="faq">
+  <div class="container">
+    <div class="section-head"><div><h2>الأسئلة الشائعة</h2><p>إجابات سريعة ومفيدة.</p></div></div>
+    <div class="faq-wrap">
+      <div class="faq-item"><button>كم أحتاج حتى أتعلم Python؟ <span>＋</span></button><div class="faq-content">إذا كنت تدرس يومياً بشكل منتظم فبإمكانك فهم الأساسيات خلال أسابيع قليلة، لكن الوصول لمستوى قوي يحتاج تطبيق ومشاريع.</div></div>
+      <div class="faq-item"><button>هل أبدأ بالمشاريع مباشرة؟ <span>＋</span></button><div class="faq-content">ابدأ بأساسيات بسيطة ثم ادخل المشاريع الصغيرة سريعاً. لا تؤخر التطبيق طويلاً.</div></div>
+      <div class="faq-item"><button>ما أهم شيء للمبتدئ؟ <span>＋</span></button><div class="faq-content">فهم المنطق البرمجي، لا الحفظ. افهم كيف يفكر البرنامج وكيف يتخذ قراراً.</div></div>
+      <div class="faq-item"><button>كيف أصير أسرع؟ <span>＋</span></button><div class="faq-content">بالمراجعة اليومية، كتابة الكود بنفسك، وبناء مشاريع متدرجة الصعوبة.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container contact-grid">
+    <div class="contact-card">
+      <h2>بيانات النشر</h2>
+      <ul class="list">
+        <li><strong>اسم الخبير الظاهر أول دخول:</strong> Albert Gonzalez</li>
+        <li><strong>القناة:</strong> <a href="https://t.me/KaliLinux_Arabic" target="_blank" rel="noopener noreferrer">https://t.me/KaliLinux_Arabic</a></li>
+        <li><strong>نوع النسخة:</strong> HTML واحد جاهز للنشر</li>
+        <li><strong>الاستخدام:</strong> GitHub Pages أو أي استضافة ثابتة</li>
+      </ul>
+      <div class="cta-row">
+        <button class="btn primary" onclick="window.open('https://t.me/KaliLinux_Arabic','_blank')">فتح القناة</button>
+        <button class="btn" onclick="document.getElementById('welcomeOverlay').classList.remove('hidden')">إعادة نافذة الترحيب</button>
+      </div>
+    </div>
+    <div class="contact-card">
+      <h3>الإضافات القادمة</h3>
+      <ul class="list">
+        <li>لوحة إدارة كورسات</li>
+        <li>حفظ التقدم بـ LocalStorage</li>
+        <li>شهادات إتمام</li>
+        <li>فيديوهات مدمجة</li>
+        <li>نظام تسجيل دخول</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+  </main>  <footer class="footer">
+    <div class="container">
+      <strong>دليل ألبرت بايثون</strong>
+      <p>منصة تعليمية مكثفة بملف واحد، جاهزة للنشر والتعديل والتطوير.</p>
+    </div>
+  </footer>  <script>
+    const toast = document.getElementById('toast');
+    const overlay = document.getElementById('welcomeOverlay');
+    const courseSearch = document.getElementById('courseSearch');
+    const courseCards = [...document.querySelectorAll('.course-card')];
+    const filterButtons = [...document.querySelectorAll('.filter-btn')];
+    const lessonTabs = [...document.querySelectorAll('.lesson-tab')];
+    const lessonCards = [...document.querySelectorAll('.lesson-card')];
+    const lessonProgress = document.getElementById('lessonProgress');
+    const projectsGrid = document.getElementById('projectsGrid');
+    const terminalOutput = document.getElementById('terminalOutput');
+    const terminalInput = document.getElementById('terminalInput');
+    const questionBank = document.getElementById('questionBank');
+
+    let currentFilter = 'all';
+    let visitedLessons = new Set(['lesson1']);
+    let altTheme = false;
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove('show'), 2400);
+    }
+
+    function closeWelcome() {
+      overlay.classList.add('hidden');
+      showToast('تم الدخول إلى المنصة بنجاح.');
+    }
+
+    function scrollToSection(id) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function toggleTheme() {
+      altTheme = !altTheme;
+      document.documentElement.style.setProperty('--accent', altTheme ? '#ffd166' : '#66ffd8');
+      document.documentElement.style.setProperty('--accent2', altTheme ? '#ff8fa3' : '#7aa2ff');
+      showToast(altTheme ? 'تم تفعيل الألوان البديلة.' : 'تم الرجوع للألوان الأصلية.');
+    }
+
+    function applyCourseFilter() {
+      const q = courseSearch.value.trim().toLowerCase();
+      courseCards.forEach(card => {
+        const category = card.dataset.category;
+        const title = card.dataset.title.toLowerCase();
+        const okFilter = currentFilter === 'all' || currentFilter === category;
+        const okSearch = !q || title.includes(q);
+        card.style.display = okFilter && okSearch ? 'block' : 'none';
+      });
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        applyCourseFilter();
+      });
+    });
+
+    courseSearch.addEventListener('input', applyCourseFilter);
+
+    function activateLesson(id) {
+      lessonTabs.forEach(tab => tab.classList.toggle('active', tab.dataset.target === id));
+      lessonCards.forEach(card => card.classList.toggle('active', card.id === id));
+      visitedLessons.add(id);
+      updateProgress();
+      scrollToSection('lessons');
+      showToast('تم فتح ' + id.replace('lesson', 'الدرس '));
+    }
+
+    lessonTabs.forEach(tab => tab.addEventListener('click', () => activateLesson(tab.dataset.target)));
+
+    function updateProgress() {
+      const percent = Math.round((visitedLessons.size / lessonCards.length) * 100);
+      lessonProgress.style.width = percent + '%';
+    }
+    updateProgress();
+
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('button').addEventListener('click', () => {
+        item.classList.toggle('open');
+        const icon = item.querySelector('span');
+        icon.textContent = item.classList.contains('open') ? '－' : '＋';
+      });
+    });
+
+    const commandResponses = {
+      help: `الأوامر المتاحة:\nhelp\nvariables\nloops\nfunctions\nfiles\noop\nclear`,
+      variables: `مثال متغيرات:\nname = 'Ali'\nage = 20\nprice = 19.9\nis_active = True`,
+      loops: `مثال حلقات:\nfor i in range(5):\n    print(i)\n\nwhile condition:\n    ...`,
+      functions: `مثال دوال:\ndef greet(name):\n    return 'Hello ' + name`,
+      files: `مثال ملفات:\nwith open('data.txt', 'r', encoding='utf-8') as f:\n    content = f.read()`,
+      oop: `مثال OOP:\nclass User:\n    def __init__(self, name):\n        self.name = name`,
+      clear: '__CLEAR__'
     };
 
-    const productGrid = document.getElementById('productGrid');
-    const adminTableWrap = document.getElementById('adminTableWrap');
-    const cartItems = document.getElementById('cartItems');
-    const cartCount = document.getElementById('cartCount');
-    const subtotalEl = document.getElementById('subtotal');
-    const totalEl = document.getElementById('total');
-    const cartDrawer = document.getElementById('cartDrawer');
-    const overlay = document.getElementById('overlay');
-    const toastWrap = document.getElementById('toastWrap');
-    const modal = document.getElementById('productModal');
-
-    const formatPrice = n => new Intl.NumberFormat('ar-IQ').format(n) + ' د.ع';
-
-    function saveCart() {
-      localStorage.setItem('pf_cart', JSON.stringify(state.cart));
-    }
-
-    function saveWishlist() {
-      localStorage.setItem('pf_wishlist', JSON.stringify(state.wishlist));
-    }
-
-    function saveProducts() {
-      localStorage.setItem('pf_products', JSON.stringify(products));
-    }
-
-    function toast(message) {
-      const div = document.createElement('div');
-      div.className = 'toast';
-      div.textContent = message;
-      toastWrap.appendChild(div);
-      setTimeout(() => div.remove(), 2600);
-    }
-
-    function getFilteredProducts() {
-      let list = [...products];
-
-      if (state.search.trim()) {
-        const q = state.search.trim().toLowerCase();
-        list = list.filter(p =>
-          p.title.toLowerCase().includes(q) ||
-          p.category.toLowerCase().includes(q) ||
-          p.desc.toLowerCase().includes(q) ||
-          p.colors.join(' ').toLowerCase().includes(q)
-        );
-      }
-
-      if (state.category !== 'all') {
-        list = list.filter(p => p.category === state.category);
-      }
-
-      if (state.price === 'low') list = list.filter(p => p.price < 30000);
-      if (state.price === 'mid') list = list.filter(p => p.price >= 30000 && p.price <= 50000);
-      if (state.price === 'high') list = list.filter(p => p.price > 50000);
-
-      if (state.quickTag !== 'all') {
-        list = list.filter(p => p.tag === state.quickTag || p.badge === state.quickTag);
-      }
-
-      switch (state.sort) {
-        case 'priceAsc': list.sort((a, b) => a.price - b.price); break;
-        case 'priceDesc': list.sort((a, b) => b.price - a.price); break;
-        case 'rating': list.sort((a, b) => b.rating - a.rating); break;
-        default: break;
-      }
-
-      return list;
-    }
-
-    function renderAdminTable() {
-      if (!products.length) {
-        adminTableWrap.innerHTML = '<div class="empty">لا توجد منتجات حالياً.</div>';
-        return;
-      }
-      adminTableWrap.innerHTML = `
-        <table class="admin-table">
-          <thead><tr><th>الصورة</th><th>الاسم</th><th>القسم</th><th>السعر</th><th>التقييم</th><th>الوسم</th><th>التحكم</th></tr></thead>
-          <tbody>
-            ${products.map(p => `
-              <tr>
-                <td><img class="admin-thumb" src="${p.image}" alt="${p.title}"></td>
-                <td>${p.title}</td>
-                <td>${p.category}</td>
-                <td>${formatPrice(p.price)}</td>
-                <td>${p.rating}</td>
-                <td>${p.badge}</td>
-                <td><div class="admin-actions"><button class="admin-small-btn edit" onclick="editProduct(${p.id})">تعديل</button><button class="admin-small-btn delete" onclick="deleteProduct(${p.id})">حذف</button></div></td>
-              </tr>`).join('')}
-          </tbody>
-        </table>`;
-    }
-
-    function renderProducts() {
-      const list = getFilteredProducts();
-
-      if (!list.length) {
-        productGrid.innerHTML = '<div class="empty" style="grid-column:1/-1">لا توجد منتجات مطابقة للفلاتر الحالية.</div>';
-        return;
-      }
-
-      productGrid.innerHTML = list.map(p => {
-        const inWish = state.wishlist.includes(p.id);
-        return `
-          <article class="product-card glass">
-            <div class="product-media">
-              <img src="${p.image}" alt="${p.title}">
-              <span class="badge">${p.badge}</span>
-              <button class="wishlist ${inWish ? 'active' : ''}" onclick="toggleWishlist(${p.id})">❤</button>
-            </div>
-            <div class="product-body">
-              <div class="product-top">
-                <h3>${p.title}</h3>
-                <div class="stars">${'★'.repeat(Math.round(p.rating))}</div>
-              </div>
-              <p class="product-desc">${p.desc}</p>
-              <div class="product-meta">
-                <span class="pill">${p.category}</span>
-                <span class="pill">${p.tag}</span>
-                <span class="pill">${p.sizes.join(' / ')}</span>
-              </div>
-              <div class="product-footer">
-                <div class="price-wrap">
-                  <strong>${formatPrice(p.price)}</strong>
-                  <del>${formatPrice(p.oldPrice)}</del>
-                </div>
-                <div class="actions">
-                  <button class="tiny-btn view" onclick="openModal(${p.id})">التفاصيل</button>
-                  <button class="tiny-btn cart" onclick="addToCart(${p.id})">أضف للسلة</button>
-                </div>
-              </div>
-            </div>
-          </article>
-        `;
-      }).join('');
-    }
-
-    function renderCart() {
-      cartCount.textContent = state.cart.reduce((sum, item) => sum + item.qty, 0);
-
-      if (!state.cart.length) {
-        cartItems.innerHTML = '<div class="empty">السلة فارغة حاليًا. أضف بعض المنتجات لتظهر هنا.</div>';
-        subtotalEl.textContent = formatPrice(0);
-        totalEl.textContent = formatPrice(4000);
-        return;
-      }
-
-      cartItems.innerHTML = state.cart.map(item => {
-        const product = products.find(p => p.id === item.id);
-        if (!product) return '';
-        return `
-          <div class="cart-item">
-            <img src="${product.image}" alt="${product.title}">
-            <div>
-              <h4>${product.title}</h4>
-              <p>${product.category} • ${formatPrice(product.price)}</p>
-              <div class="cart-line">
-                <div class="qty-controls">
-                  <button onclick="changeQty(${item.id}, -1)">-</button>
-                  <strong>${item.qty}</strong>
-                  <button onclick="changeQty(${item.id}, 1)">+</button>
-                </div>
-                <strong>${formatPrice(product.price * item.qty)}</strong>
-              </div>
-              <div style="height:8px"></div>
-              <button class="btn" style="padding:10px 14px" onclick="removeFromCart(${item.id})">حذف</button>
-            </div>
-          </div>
-        `;
-      }).join('');
-
-      const subtotal = state.cart.reduce((sum, item) => {
-        const product = products.find(p => p.id === item.id);
-        return sum + (product ? product.price * item.qty : 0);
-      }, 0);
-      const shipping = subtotal ? 4000 : 0;
-      subtotalEl.textContent = formatPrice(subtotal);
-      totalEl.textContent = formatPrice(subtotal + shipping);
-    }
-
-    function addToCart(id) {
-      const found = state.cart.find(item => item.id === id);
-      if (found) found.qty += 1;
-      else state.cart.push({ id, qty: 1 });
-      saveCart();
-      renderCart();
-      toast('تمت إضافة المنتج إلى السلة');
-    }
-
-    function removeFromCart(id) {
-      state.cart = state.cart.filter(item => item.id !== id);
-      saveCart();
-      renderCart();
-      toast('تم حذف المنتج من السلة');
-    }
-
-    function changeQty(id, delta) {
-      const item = state.cart.find(i => i.id === id);
-      if (!item) return;
-      item.qty += delta;
-      if (item.qty <= 0) state.cart = state.cart.filter(i => i.id !== id);
-      saveCart();
-      renderCart();
-    }
-
-    function toggleWishlist(id) {
-      const idx = state.wishlist.indexOf(id);
-      if (idx > -1) {
-        state.wishlist.splice(idx, 1);
-        toast('تمت إزالة المنتج من المفضلة');
+    function runCommand(cmd) {
+      const value = cmd.trim().toLowerCase();
+      if (!value) return;
+      terminalOutput.textContent += `\n> ${cmd}\n`;
+      if (commandResponses[value] === '__CLEAR__') {
+        terminalOutput.textContent = 'تم تنظيف الشاشة.\n';
+      } else if (commandResponses[value]) {
+        terminalOutput.textContent += commandResponses[value] + '\n';
       } else {
-        state.wishlist.push(id);
-        toast('تمت إضافة المنتج إلى المفضلة');
+        terminalOutput.textContent += 'أمر غير معروف. اكتب help.\n';
       }
-      saveWishlist();
-      renderProducts();
+      terminalOutput.scrollTop = terminalOutput.scrollHeight;
     }
 
-    function openCart() {
-      cartDrawer.classList.add('open');
-      overlay.classList.add('show');
+    function runPreset(cmd) {
+      runCommand(cmd);
+      showToast('تم تشغيل الأمر: ' + cmd);
     }
 
-    function closeCart() {
-      cartDrawer.classList.remove('open');
-      overlay.classList.remove('show');
-    }
-
-    function openModal(id) {
-      const p = products.find(x => x.id === id);
-      if (!p) return;
-      state.currentProduct = p;
-      document.getElementById('modalImage').src = p.image;
-      document.getElementById('modalTitle').textContent = p.title;
-      document.getElementById('modalBadge').textContent = p.badge;
-      document.getElementById('modalRating').textContent = '★'.repeat(Math.round(p.rating)) + '  (' + p.rating + ')';
-      document.getElementById('modalDesc').textContent = p.desc;
-      document.getElementById('modalPrice').textContent = formatPrice(p.price);
-      document.getElementById('modalColors').innerHTML = p.colors.map(c => `<span class="color-dot">${c}</span>`).join('');
-      document.getElementById('modalSizes').innerHTML = p.sizes.map(s => `<span class="size-item">${s}</span>`).join('');
-      modal.classList.add('show');
-      overlay.classList.add('show');
-    }
-
-    function closeModal() {
-      modal.classList.remove('show');
-      if (!cartDrawer.classList.contains('open')) overlay.classList.remove('show');
-    }
-
-    function applyFilters() {
-      state.search = document.getElementById('searchInput').value;
-      state.category = document.getElementById('categoryFilter').value;
-      state.price = document.getElementById('priceFilter').value;
-      state.sort = document.getElementById('sortFilter').value;
-      renderProducts();
-    }
-
-    function fillAdminForm(product) {
-      document.getElementById('adminEditId').value = product?.id || '';
-      document.getElementById('adminTitle').value = product?.title || '';
-      document.getElementById('adminCategory').value = product?.category || 'تيشيرت';
-      document.getElementById('adminPrice').value = product?.price || '';
-      document.getElementById('adminOldPrice').value = product?.oldPrice || '';
-      document.getElementById('adminRating').value = product?.rating || '';
-      document.getElementById('adminBadge').value = product?.badge || '';
-      document.getElementById('adminTag').value = product?.tag || '';
-      document.getElementById('adminColors').value = product?.colors?.join(', ') || '';
-      document.getElementById('adminSizes').value = product?.sizes?.join(', ') || '';
-      document.getElementById('adminImage').value = product?.image || '';
-      document.getElementById('adminDesc').value = product?.desc || '';
-      document.getElementById('saveProductBtn').textContent = product ? 'تحديث المنتج' : 'حفظ المنتج';
-    }
-
-    function resetAdminForm() {
-      fillAdminForm(null);
-    }
-
-    function saveProductFromForm() {
-      const id = Number(document.getElementById('adminEditId').value);
-      const product = {
-        id: id || Date.now(),
-        title: document.getElementById('adminTitle').value.trim(),
-        category: document.getElementById('adminCategory').value,
-        price: Number(document.getElementById('adminPrice').value),
-        oldPrice: Number(document.getElementById('adminOldPrice').value) || Number(document.getElementById('adminPrice').value),
-        rating: Number(document.getElementById('adminRating').value) || 4.5,
-        badge: document.getElementById('adminBadge').value.trim() || 'جديد',
-        tag: document.getElementById('adminTag').value.trim() || 'جديد',
-        colors: document.getElementById('adminColors').value.split(',').map(x => x.trim()).filter(Boolean),
-        sizes: document.getElementById('adminSizes').value.split(',').map(x => x.trim()).filter(Boolean),
-        image: document.getElementById('adminImage').value.trim() || 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=80',
-        desc: document.getElementById('adminDesc').value.trim() || 'وصف منتج جديد.'
-      };
-      if (!product.title || !product.price) {
-        toast('اكتب اسم المنتج والسعر على الأقل');
-        return;
+    terminalInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        runCommand(terminalInput.value);
+        terminalInput.value = '';
       }
-      const index = products.findIndex(p => p.id === product.id);
-      if (index > -1) {
-        products[index] = product;
-        toast('تم تحديث المنتج');
+    });
+
+    function shuffleProjects() {
+      const cards = [...projectsGrid.children];
+      for (let i = cards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cards[i], cards[j]] = [cards[j], cards[i]];
+      }
+      cards.forEach(card => projectsGrid.appendChild(card));
+      showToast('تم تغيير ترتيب المشاريع.');
+    }
+
+    const quizData = [
+      {q:'ما الدالة المستخدمة للطباعة في Python؟', a:['echo','print','input','show'], c:1},
+      {q:'أي نوع بيانات يمثل نصاً؟', a:['str','int','bool','float'], c:0},
+      {q:'أي جملة تستخدم لاتخاذ قرار؟', a:['if','for','import','def'], c:0},
+      {q:'أي حلقة تستخدم للتكرار على مدى معروف؟', a:['try','while','for','open'], c:2},
+      {q:'ما الكلمة المستخدمة لتعريف دالة؟', a:['func','class','def','return'], c:2},
+      {q:'أي بنية تخزن عناصر مرتبة؟', a:['dict','set','list','bool'], c:2},
+      {q:'أي بنية تخزن بيانات بشكل مفتاح/قيمة؟', a:['tuple','dict','float','range'], c:1},
+      {q:'ما الأمر الأنسب لفتح ملف وإغلاقه تلقائياً؟', a:['open only','with open','file.read only','import file'], c:1},
+      {q:'ما الفائدة من try/except؟', a:['طباعة فقط','منع الأخطاء نهائياً','التعامل مع الأخطاء','إنشاء دوال'], c:2},
+      {q:'ما مفهوم OOP؟', a:['تنسيق نصوص','برمجة كائنية','قواعد بيانات','رسم بياني'], c:1}
+    ];
+
+    let quizIndex = 0;
+    let quizScore = 0;
+    let answered = false;
+    const quizQuestion = document.getElementById('quizQuestion');
+    const quizAnswers = document.getElementById('quizAnswers');
+    const scoreBox = document.getElementById('scoreBox');
+
+    function renderQuestion() {
+      const item = quizData[quizIndex];
+      answered = false;
+      quizQuestion.textContent = `س${quizIndex + 1}: ${item.q}`;
+      quizAnswers.innerHTML = '';
+      item.a.forEach((answer, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn';
+        btn.textContent = answer;
+        btn.onclick = () => answerQuestion(idx);
+        quizAnswers.appendChild(btn);
+      });
+      scoreBox.textContent = `النتيجة الحالية: ${quizScore} من ${quizData.length}`;
+    }
+
+    function answerQuestion(choice) {
+      if (answered) return;
+      answered = true;
+      if (choice === quizData[quizIndex].c) {
+        quizScore++;
+        showToast('إجابة صحيحة');
       } else {
-        products.unshift(product);
-        toast('تمت إضافة المنتج');
+        showToast('إجابة غير صحيحة');
       }
-      saveProducts();
-      renderProducts();
-      renderAdminTable();
-      resetAdminForm();
+      scoreBox.textContent = `النتيجة الحالية: ${quizScore} من ${quizData.length}`;
     }
 
-    function editProduct(id) {
-      const product = products.find(p => p.id === id);
-      if (!product) return;
-      fillAdminForm(product);
-      document.getElementById('adminPanelSection').style.display = 'block';
-      document.getElementById('adminPanelSection').scrollIntoView({ behavior: 'smooth' });
+    function nextQuestion() {
+      if (quizIndex < quizData.length - 1) {
+        quizIndex++;
+        renderQuestion();
+      } else {
+        scoreBox.textContent = `انتهى الاختبار. نتيجتك النهائية: ${quizScore} من ${quizData.length}`;
+        showToast('انتهى الاختبار');
+      }
     }
 
-    function deleteProduct(id) {
-      products = products.filter(p => p.id !== id);
-      state.cart = state.cart.filter(item => item.id !== id);
-      state.wishlist = state.wishlist.filter(item => item !== id);
-      saveProducts();
-      saveCart();
-      saveWishlist();
-      renderProducts();
-    renderCart();
-    renderAdminTable();
-    resetAdminForm();
-      renderAdminTable();
-      toast('تم حذف المنتج');
+    function restartQuiz() {
+      quizIndex = 0;
+      quizScore = 0;
+      renderQuestion();
+      showToast('تمت إعادة الاختبار');
     }
 
-    function toggleAdminPanel() {
-      const section = document.getElementById('adminPanelSection');
-      section.style.display = section.style.display === 'block' ? 'none' : 'block';
-      if (section.style.display === 'block') section.scrollIntoView({ behavior: 'smooth' });
+    const bankQuestions = [
+      '1) ما الفرق بين المتغير والثابت من الناحية المفهومية؟',
+      '2) ما الفرق بين int و float؟',
+      '3) ما وظيفة print؟',
+      '4) ما وظيفة input؟',
+      '5) ماذا تعني bool؟',
+      '6) ما الفرق بين == و = ؟',
+      '7) متى تستخدم if؟',
+      '8) متى تستخدم elif؟',
+      '9) ما دور else؟',
+      '10) ما الفرق بين for و while؟',
+      '11) ما وظيفة range؟',
+      '12) ماذا تفعل break؟',
+      '13) ماذا تفعل continue؟',
+      '14) ما فائدة الدوال؟',
+      '15) ما معنى parameter؟',
+      '16) ما معنى return؟',
+      '17) ما الفرق بين list و tuple؟',
+      '18) ما الفرق بين list و set؟',
+      '19) ما هو dictionary؟',
+      '20) كيف تصل إلى قيمة داخل dict؟',
+      '21) ما فائدة with open؟',
+      '22) ما الفرق بين read و write؟',
+      '23) لماذا نستخدم encoding؟',
+      '24) ما وظيفة try؟',
+      '25) ما وظيفة except؟',
+      '26) ما وظيفة finally؟',
+      '27) ما معنى import؟',
+      '28) اذكر مثالاً على module جاهز.',
+      '29) ما هو class؟',
+      '30) ما هو object؟',
+      '31) ما فائدة __init__؟',
+      '32) ما معنى self؟',
+      '33) ما هي الوراثة inheritance؟',
+      '34) ما معنى encapsulation؟',
+      '35) ما المقصود بالأتمتة؟',
+      '36) ما المقصود بـ CLI؟',
+      '37) لماذا المشاريع أهم من القراءة فقط؟',
+      '38) ما هي Pandas؟',
+      '39) ما هي NumPy؟',
+      '40) ما هي Matplotlib؟'
+    ];
+
+    function renderBankQuestions() {
+      questionBank.innerHTML = '';
+      bankQuestions.forEach(q => {
+        const div = document.createElement('div');
+        div.className = 'bank-item';
+        div.textContent = q;
+        questionBank.appendChild(div);
+      });
     }
 
-    function clearFilters() {
-      state.search = '';
-      state.category = 'all';
-      state.price = 'all';
-      state.sort = 'featured';
-      state.quickTag = 'all';
-      document.getElementById('searchInput').value = '';
-      document.getElementById('categoryFilter').value = 'all';
-      document.getElementById('priceFilter').value = 'all';
-      document.getElementById('sortFilter').value = 'featured';
-      document.querySelectorAll('.tag').forEach(tag => tag.classList.remove('active'));
-      document.querySelector('.tag[data-tag="all"]').classList.add('active');
-      renderProducts();
+    function copyQuestionBank() {
+      const text = bankQuestions.join('\n');
+      navigator.clipboard.writeText(text)
+        .then(() => showToast('تم نسخ بنك الأسئلة.'))
+        .catch(() => showToast('تعذر النسخ من هذا المتصفح.'));
     }
 
-    document.getElementById('applyFilters').addEventListener('click', applyFilters);
-    document.getElementById('adminBtn').addEve
+    renderBankQuestions();
+    renderQuestion();
+    applyCourseFilter();
+
+    window.closeWelcome = closeWelcome;
+    window.scrollToSection = scrollToSection;
+    window.toggleTheme = toggleTheme;
+    window.activateLesson = activateLesson;
+    window.nextQuestion = nextQuestion;
+    window.restartQuiz = restartQuiz;
+    window.runPreset = runPreset;
+    window.shuffleProjects = shuffleProjects;
+    window.copyQuestionBank = copyQuestionBank;
+    window.showToast = showToast;
+  </script></body>
+  </html>
